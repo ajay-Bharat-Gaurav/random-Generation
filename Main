@@ -1,0 +1,50 @@
+// Generate random Characters 
+// without using any built-in functions
+
+#include <stdio.h>
+#include <iostream>
+#include <stdlib.h>
+#include <algorithm>
+using namespace std;
+
+
+class RandomCharacters{
+    public:
+
+        int rand(){
+            int *ptr = NULL;
+            ptr = (int *) malloc(sizeof(int));
+            return (int) ptr;
+        }
+
+        int randChar(){
+            return (65 + (rand() % 25));
+        }
+};
+
+
+void driver(){
+
+        RandomCharacters obj;
+
+        cout<<"Random Characters\n";
+
+        char randomCharacter[26];
+
+        for(int i=0; i<26; i++){
+            randomCharacter[i] = obj.randChar();
+        }
+
+        sort(randomCharacter,randomCharacter+26);
+       
+        for(int i=0; i<26; i++){
+            printf("%d\t%c\n",i+1,randomCharacter[i]);
+        }
+}
+
+
+int main(void){
+    driver();
+
+    return 0;
+}
